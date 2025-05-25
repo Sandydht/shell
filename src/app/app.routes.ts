@@ -4,6 +4,8 @@ import { LoginComponent } from './modules/login/login.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { authGuard } from './core/guards/auth/auth.guard';
 import { loadRemoteModule } from '@angular-architects/native-federation';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { ErrorModuleFederationComponent } from './shared/components/error-module-federation/error-module-federation.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +25,13 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
-        loadComponent: () => loadRemoteModule('mfe1', './Component').then((m) => m.AppComponent),
+        loadComponent: () => loadRemoteModule('mfe1', './Component')
+          .then((m) => m.AppComponent)
+          .catch(() => ErrorModuleFederationComponent),
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
       }
     ]
   },
@@ -34,5 +42,9 @@ export const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];

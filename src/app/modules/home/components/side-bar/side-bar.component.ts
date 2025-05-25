@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-side-bar',
   imports: [
-    AppBarComponent,
     CommonModule
   ],
   templateUrl: './side-bar.component.html',
