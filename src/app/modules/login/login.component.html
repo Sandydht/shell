@@ -1,3 +1,52 @@
-<div class="w-full h-full min-h-screen bg-gradient-to-r from-sky-500 to-indigo-500 flex flex-col items-start justify-start">
-  <p>Test</p>
+<div
+  class="w-full h-full min-h-screen bg-gradient-to-r from-sky-500 to-indigo-500 flex flex-col items-start justify-start px-[25px] py-[100px]">
+  <form
+    class="w-full max-w-[425px] flex flex-col items-start justify-start gap-[24px] bg-white rounded-[16px] shadow-lg mx-auto p-[24px] border-[1px] border-gray-100"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()">
+    <div class="w-full h-auto">
+      <p class="text-left text-[32px] leading-[40px] text-black font-bold">
+        Login
+      </p>
+    </div>
+
+    <div class="w-full h-auto flex flex-col items-start justify-start gap-[16px]">
+      <div class="w-full h-auto flex flex-col items-start justify-start gap-[8px]">
+        <label for="username" class="text-left text-[14px] leading-[20px] font-semibold">
+          Username
+        </label>
+        <input id="username" formControlName="username" type="text"
+          class="w-full h-auto px-[20px] py-[10px] border-[1px] border-gray-400 rounded-[8px] text-left text-[12px] leading-[18px]"
+          placeholder="John Doe" />
+      </div>
+
+      <div class="w-full h-auto flex flex-col items-start justify-start gap-[8px]">
+        <label for="password" class="text-left text-[14px] leading-[20px] font-semibold">
+          Password
+        </label>
+        <input id="password" formControlName="password" [type]="isShowPassword ? 'text' : 'password'"
+          class="w-full h-auto px-[20px] py-[10px] border-[1px] border-gray-400 rounded-[8px] text-left text-[12px] leading-[18px]"
+          placeholder="Password" />
+      </div>
+
+      <div class="w-full h-auto flex items-center justify-start gap-[8px]">
+        <input 
+          id="showPassword" 
+          formControlName="showPassword"
+          type="checkbox" 
+          class="cursor-pointer"
+        />
+        <label for="showPassword" class="text-left text-[14px] leading-[20px] font-semibold">
+          Show Password
+        </label>
+      </div>
+    </div>
+
+    <div class="w-full h-auto">
+      <button type="submit"
+        class="w-full h-auto px-[20px] py-[10px] rounded-[8px] cursor-pointer bg-blue-500 text-center text-[14px] leading-[20px] font-semibold text-white transition-all hover:bg-blue-600">
+        Login
+      </button>
+    </div>
+  </form>
 </div>
