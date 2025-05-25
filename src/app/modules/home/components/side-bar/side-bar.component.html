@@ -1,4 +1,26 @@
 <div
-  class="w-full h-auto min-h-screen max-h-screen min-w-[280px] max-w-[280px] bg-gradient-to-r from-sky-500 to-indigo-500 overflow-y-auto">
-  <div class="w-full h-auto min-h-screen"></div>
+  class="w-full h-auto min-h-screen max-h-screen min-w-[280px] max-w-[280px] bg-gradient-to-r from-sky-500 to-indigo-500 overflow-y-auto flex flex-col items-start justify-start">
+  <div
+    class="w-full h-full min-h-[54px] max-h-[54px] px-[20px] py-[10px] flex items-center justify-between border-b-[1px] border-gray-100">
+    <p class="text-center text-[16px] leading-[24px] text-white font-bold">
+      Admin
+    </p>
+  </div>
+  <nav class="w-full h-auto">
+    <ul
+      class="w-full h-auto flex flex-col items-start justify-start min-h-[calc(100vh-54px)] max-h-[calc(100vh-54px)] overflow-y-auto">
+      @for(menu of menuList; track menu.id) {
+      <li class="w-full h-auto border-b-[1px] border-gray-50">
+        <a routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page"
+          class="w-full h-auto px-[20px] py-[10px] flex items-center justify-start gap-[10px] cursor-pointer transition-all">
+          <img [src]="menu.icon" alt="Dashboard icon" loading="lazy"
+            class="w-full h-full min-h-[24px] max-h-[24px] min-w-[24px] max-w-[24px]" />
+          <span class="text-left text-[14px] leading-[20px] font-semibold text-white">
+            {{ menu.label }}
+          </span>
+        </a>
+      </li>
+      }
+    </ul>
+  </nav>
 </div>
