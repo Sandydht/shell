@@ -1,0 +1,17 @@
+<div class="w-auto h-auto relative">
+  <button type="button" class="w-full h-full min-h-[24px] max-h-[24px] min-w-[24px] max-w-[24px] cursor-pointer"
+    (click)="toggleDropdown()">
+    <img src="assets/images/icons/svg/notifications_none_24px_outlined.svg" alt="Notification icon" loading="lazy"
+      class="w-full h-full min-h-[24px] max-h-[24px] min-w-[24px] max-w-[24px]" />
+  </button>
+
+  @if (isOpenDropdown) {
+  <div
+    class="w-auto h-auto bg-white rounded-[8px] overflow-hidden shadow-lg border-[2px] border-gray-100 absolute top-[34px] right-0 flex flex-col items-start justify-start p-[20px]"
+    appClickOutside (clickOutside)="closeDropdown()">
+    <p class="text-left text-[12px] leading-[18px] text-black font-bold text-nowrap">
+      You have no notifications
+    </p>
+  </div>
+  }
+</div>
